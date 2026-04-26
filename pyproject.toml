@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "med-summarize"
+version = "0.1.0"
+description = "Abstractive Summarization for Medical Papers — TextRank/LDA notebook + BART production"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy",
+  "pandas",
+  "scikit-learn>=1.4",
+  "scipy",
+  "matplotlib",
+  "seaborn",
+  "networkx>=3.2",
+  "nltk",
+  "joblib",
+  "pyarrow",
+  "fastapi",
+  "uvicorn[standard]",
+  "pydantic>=2",
+  "mlflow",
+]
+
+[project.optional-dependencies]
+heavy = [
+  "transformers>=4.40",
+  "torch>=2.2",
+  "sentencepiece",
+]
+dev = [
+  "pytest",
+  "httpx",
+  "ruff",
+  "jupyterlab",
+  "nbformat",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
